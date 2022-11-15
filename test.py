@@ -26,7 +26,8 @@ time.sleep(1)
 
 button = driver.find_element(By.CSS_SELECTOR, "button")
 button.click()
-time.sleep(5)
+time.sleep(10)
+
 
 
 driver.quit()
