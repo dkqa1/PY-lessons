@@ -12,8 +12,13 @@ time.sleep(5)
 driver.get("https://suninjuly.github.io/math.html")
 time.sleep(5)
 
+x_element = driver.find_element(By.XPATH, "/html/body/div/form/div[1]/label/span[2]")
+x = x_element.text
+y = calc(x)
+time.sleep(1)
+
 textarea = driver.find_element(By.CSS_SELECTOR, "#answer")
-textarea.send_keys("QWERTY")
+textarea.send_keys(y)
 time.sleep(1)
 
 checkbox = driver.find_element(By.CSS_SELECTOR, "#robotCheckbox")
@@ -27,7 +32,5 @@ time.sleep(1)
 button = driver.find_element(By.CSS_SELECTOR, "button")
 button.click()
 time.sleep(10)
-
-
 
 driver.quit()
