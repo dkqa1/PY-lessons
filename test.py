@@ -7,15 +7,15 @@ def calc(x):
   return str(math.log(abs(12*math.sin(int(x)))))
 
 driver = webdriver.Chrome()
-time.sleep(5)
-
-driver.get("https://suninjuly.github.io/math.html")
-time.sleep(5)
-
-x_element = driver.find_element(By.XPATH, "/html/body/div/form/div[1]/label/span[2]")
-x = x_element.text
-y = calc(x)
 time.sleep(1)
+
+driver.get("http://suninjuly.github.io/get_attribute.html")
+time.sleep(5)
+
+x_element = driver.find_element(By.ID, "treasure")
+number = x_element.get_attribute('valuex')
+x = number
+y = calc(x)
 
 textarea = driver.find_element(By.CSS_SELECTOR, "#answer")
 textarea.send_keys(y)
@@ -29,8 +29,8 @@ radiobutton = driver.find_element(By.CSS_SELECTOR, "#robotsRule")
 radiobutton.click()
 time.sleep(1)
 
-button = driver.find_element(By.CSS_SELECTOR, "button")
+button = driver.find_element(By.TAG_NAME, "button")
 button.click()
-time.sleep(10)
+time.sleep(5)
 
 driver.quit()
